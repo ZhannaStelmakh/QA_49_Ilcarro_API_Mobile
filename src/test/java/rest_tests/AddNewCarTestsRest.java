@@ -149,7 +149,8 @@ public class AddNewCarTestsRest extends CarController {
                 .build();
         Response response = addNewCar_WOToken(car);
         System.out.println(response.getBody().print());
-        softAssert.assertEquals(response.getStatusCode(), 403, "validate status code");
+        softAssert.assertEquals(response.getStatusCode(), 403,
+                "validate status code");
         softAssert.assertAll();
     }
 

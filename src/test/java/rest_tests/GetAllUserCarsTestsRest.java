@@ -9,7 +9,7 @@ import org.testng.asserts.SoftAssert;
 
 public class GetAllUserCarsTestsRest extends CarController {
     SoftAssert softAssert = new SoftAssert();
-    CarsDto cars;
+    //CarsDto cars;
 
     @Test
     public void getAllUserCarsPositiveTest(){
@@ -18,8 +18,8 @@ public class GetAllUserCarsTestsRest extends CarController {
         System.out.println(cars);
         softAssert.assertEquals(response.getStatusCode(),
                 200, "validate status code");
-        softAssert.assertTrue(cars.getCars()[0].getManufacture().contains("Volvo"),
-                "validate manufacture");
+        softAssert.assertTrue(cars.getCars()[0].getCity().contains("Haifa"),
+                "validate city");
         softAssert.assertAll();
     }
 
