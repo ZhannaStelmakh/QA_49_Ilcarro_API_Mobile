@@ -8,6 +8,8 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeSuite;
 
+import java.net.URL;
+
 import static io.restassured.RestAssured.given;
 
 public class CarController implements Base_Api {
@@ -68,6 +70,20 @@ public class CarController implements Base_Api {
                 .thenReturn();
     }
 
+    public Response getAllUserCars_WrongUrl(String url) {
+        return given()
+                .contentType(ContentType.JSON)
+                .header("Authorization", tokenDto.getAccessToken())
+                .when()
+                .get(BASE_URL + url)
+                .thenReturn();
+    }
 
-
+    public Response deleteCarBySerialNumber(String serialNumber){
+        return given()
+                .contentType(ContentType.JSON)
+                .header("Authorization", tokenDto.getAccessToken())
+                .delete(BASE_URL+DELETE_CAR_URL+serialNumber)
+                .thenReturn();
+    }
 }

@@ -23,5 +23,11 @@ public class GetAllUserCarsTestsRest extends CarController {
         softAssert.assertAll();
     }
 
+    @Test
+    public void getAllUsersCarsNegativeTests_WrongUrl(){
+        Response response = getAllUserCars_WrongUrl(LOGIN_URL);
+        System.out.println(response.getStatusCode());
+        Assert.assertEquals(response.getStatusCode(), 403);
+    }
 
 }
